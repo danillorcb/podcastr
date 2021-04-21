@@ -1,5 +1,17 @@
-export default function Button({title, color}) {
+import { useState } from 'react';
+
+export default function Button(props) {
+  const [counter, setCounter] = useState(1);
+
+  function increment() {
+    setCounter(counter + 1);
+  }
+
   return (
-    <button style={{background: color}}>{title}</button>
+    <>
+      <span>{counter}</span>
+      <button onClick={increment}>{props.children}</button>
+      <br />
+    </>
   );
 }
